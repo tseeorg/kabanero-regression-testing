@@ -1,5 +1,5 @@
 # kabanero-regression-testing
-Force PR 5
+Force PR 6
 Work items and scripts for builds and test framework
 
 ## Prerequisuites
