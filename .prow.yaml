@@ -1,0 +1,18 @@
+presubmits:
+  *:
+  - name: pull-kubernetes-validate-prow-yaml
+    always_run: true
+    decorate: true
+    extra_refs:
+    - org: tseeorg
+      repo: kabanero-regression-testing
+      base_ref: master
+     spec:
+       containers:
+       - image: gcr.io/k8s-prow/checkconfig:v20191205-050b151d0
+         command:
+         - /app/prow/cmd/checkconfig/app.binary
+         args:
+         - --plugin-config=/etc/plugins/plugins.yaml
+         - --config-path=/etc/config/config.yaml
+         - --prow-yaml-repo-name=$(REPO_OWNER)/$(REPO_NAME)
